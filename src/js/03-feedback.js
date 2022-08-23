@@ -16,8 +16,13 @@ populateMessage()
 
 function onFormSubmit(evt) {
     evt.preventDefault();
-    evt.currentTarget.reset();
-    localStorage.removeItem(STORAGE_KEY)
+    if (evt.target[0].value && evt.target[1].value !== '') {
+        console.log(evt.target[0].value)
+        evt.currentTarget.reset();
+        localStorage.removeItem(STORAGE_KEY)
+        console.log(formData)
+        formData = {}
+    }
 }
 
 function onTextareaInput(evt) {
